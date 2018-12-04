@@ -48,6 +48,9 @@ use Time::Local ;
 use base ('Bio::EnsEMBL::Hive::Meadow');
 
 
+# jhv: ednited version on 2018-12-01 as it did not work with the new ehvie code version 94 as some 
+# versioning was introduced ( Bio::EnseMBL::Hive::VAlley does chekcs ) 
+
 our $VERSION = '3.0';       # Semantic version of the Meadow interface:
                             #   change the Major version whenever an incompatible change is introduced,
                             #   change the Minor version whenever the interface is extended, but compatibility is retained.
@@ -309,7 +312,7 @@ sub get_cause_of_death {
 sub get_report_entries_for_process_ids {
     my $self = shift @_;    # make sure we get if off the way before splicing
 
-    die("aaaarg"); 
+#    die("aaaarg"); 
     my %combined_report_entries = ();
 
     while (my $pid_batch = join(',', map { "'$_'" } splice(@_, 0, 20))) {  # can't fit too many pids on one shell cmdline 
